@@ -90,8 +90,8 @@ void vector_destroy(Vector* vec) {
 void vector_print(Vector* vec) {
     for(int i = 0; i < vec->size; i++)
     	printf("vector[%d] = %d\n", i, *((int*)vector_at(vec, i)));
-            //! SET UP YOUR DATA TYPE HERE ^^^
-                                    //!    ||
+           //! SET UP YOUR DATA TYPE HERE ^^^
+                                   //!    ||
 };
 
 

@@ -95,6 +95,6 @@ void linked_list_destroy(Linked_list* node) {
 void linked_list_print(Linked_list* head) {
     for(int i = 0; i < linked_list_size(head); i++)
     	printf("list[%d] = %d\n", i, *((int*)linked_list_at(head, i)));
-            //! SET UP YOUR DATA TYPE HERE ^^^
-                                    //!    ||
+         //! SET UP YOUR DATA TYPE HERE ^^^
+                                 //!    ||
 };

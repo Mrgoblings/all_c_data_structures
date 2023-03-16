@@ -102,6 +102,6 @@ void doubly_linked_list_destroy(Doubly_linked_list* node) {
 void doubly_linked_list_print(Doubly_linked_list* head) {
     for(int i = 0; i < doubly_linked_list_size(head); i++)
     	printf("doubly_list[%d] = %d\n", i, *((int*)doubly_linked_list_at(head, i)));
-            //! SET UP YOUR DATA TYPE HERE ^^^
-                                    //!    ||
+                //! SET UP YOUR DATA TYPE HERE ^^^
+                                        //!    ||
 };
