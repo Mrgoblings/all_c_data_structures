@@ -4,19 +4,19 @@
 int main() {
     int input[] = {3, 10, 15, 20, 25};
 
-    Doubly_linked_list* list = NULL;
+    Binary_tree* tree = NULL;
  
     for(int i = 0; i < 5; i ++)
-    	doubly_linked_list_push(&list, input + i);
+    	binary_tree_push(&tree, input + i, input[i]);
    
-    printf("Size is %d\n", doubly_linked_list_size(list));
-    doubly_linked_list_print(list);
+    printf("Size is %d\n", binary_tree_size(tree));
+    binary_tree_print(tree);
     
-    printf("pop = %d\n", *((int*)doubly_linked_list_pop(&list)));
-    doubly_linked_list_print(list);
+    printf("pop = %d\n", *((int*)binary_tree_pop(&tree)));
+    binary_tree_print(tree);
    
-    doubly_linked_list_destroy(list);
-    list = NULL;
+    binary_tree_destroy(tree);
+    tree = NULL;
  
     return 0;
 }

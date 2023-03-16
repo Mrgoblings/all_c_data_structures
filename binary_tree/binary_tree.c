@@ -11,6 +11,8 @@ Binary_tree* binary_tree_init() {
     node->right = NULL;
     node->data = NULL;
 
+    node->priority = 0;
+
     return node;
 };
 
@@ -24,8 +26,11 @@ unsigned int binary_tree_size(Binary_tree* node) {
     while(queue_size(q) > 0) {
         Binary_tree* current_node = queue_pop(q);
 
-        queue_push(q, current_node->left);
-        queue_push(q, current_node->right);
+        if(current_node->left != NULL)
+            queue_push(q, current_node->left);
+
+        if(current_node->right != NULL)
+            queue_push(q, current_node->right);
         
         size++;
     }
@@ -34,19 +39,69 @@ unsigned int binary_tree_size(Binary_tree* node) {
 };
 
 
-void binary_tree_push(Binary_tree* q, void* value);
+void binary_tree_push(Binary_tree* node, void* value, int priority) {
+    if(node == NULL) return;
+
+    if(node->priority > priority) {
+        if(node->left != NULL) binary_tree_push(node->left, value, priority);
+        else {
+            node->left = binary_tree_init();
+            node->left->priority = priority;
+            node->left->data = value;
+        }
+    } else {
+        if(node->right != NULL) binary_tree_push(node->right, value, priority);
+        else {
+            node->left = binary_tree_init();
+            node->left->priority = priority;
+            node->left->data = value;
+        }
+    }
+};
 
 
-int binary_tree_contains(Binary_tree* q, void* value);
+int binary_tree_contains(Binary_tree* node, void* value) {
+    Queue* q = queue_init();
+
+    queue_push(q, node);
+
+    while(queue_size(q) > 0) {
+        Binary_tree* current_node = queue_pop(q);
+
+        if(current_node->data == value) return 1;
+
+        if(current_node->left != NULL)
+            queue_push(q, current_node->left);
+
+        if(current_node->right != NULL)
+            queue_push(q, current_node->right);
+    }
+
+    return 0;
+};
 
 
-void* binary_tree_at(Binary_tree* q, unsigned int index);
+void binary_tree_clear(Binary_tree* node) {
+    if(node == NULL) return;
+
+    binary_tree_clear(node->left);
+    binary_tree_clear(node->right);
+
+    free(node);
+
+    return;
+};
 
 
-void binary_tree_clear(Binary_tree* q);
+void binary_tree_destroy(Binary_tree* node) {
+    if(node == NULL) return;
 
+    binary_tree_destroy(node->left);
+    binary_tree_destroy(node->right);
 
-void binary_tree_destroy(Binary_tree* q);
+    free(node);
+    return;
+};
 
 
 //* dfs

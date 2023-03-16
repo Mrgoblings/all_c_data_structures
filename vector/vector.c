@@ -6,7 +6,7 @@
 //* private functions --------------------
 void resize(Vector* vec, unsigned int new_capacity) {
     vec->capacity = new_capacity;
-    vec->data = (void**) realloc(vec->data, new_capacity);
+    vec->data = (void**) realloc(vec->data, new_capacity * sizeof(void*));
 }
 //* --------------------------------------
 
