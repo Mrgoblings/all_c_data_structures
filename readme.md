@@ -25,7 +25,7 @@ Each data structure comes with a set of useful functions such as `push`, `pop`, 
 ## Installation
 1. Clone the repository
 2. Navigate to the directory where you cloned the repository
-3. Compile the library using the following command: `make`
+3. Copy the needed files to your project
 4. Include the desired data structure header file in your project using the following command: `#include "data_structure_name.h"`
 
 ## Usage
