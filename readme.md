@@ -71,6 +71,7 @@ void linked_list_print(Linked_list* head) {
 We welcome contributions to this library! If you find a bug or want to add a new feature, please open an issue or submit a pull request.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
 
 Happy coding!
