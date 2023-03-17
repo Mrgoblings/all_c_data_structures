@@ -10,7 +10,7 @@ typedef struct node_t {
     void* data;
 
     Vector* edges;
-    Vector* weights;
+    Vector_int* weights;
 
     int best_weight;
     int is_visited; //* flag
@@ -31,11 +31,11 @@ Vector* dijkstra(Node* start, Node* end) {
         if(current_node == end) break;
 
         for(int i = 0; i < current_node->edges->size; i++) {
-            if(current_node->edges->data[i]->best_weight == 0 ||
-            current_node->edges->data[i]->best_weight < current_node->best_weight + current_node->weights->data[i]) 
-                current_node->edges->data[i]->best_weight = current_node->best_weight + current_node->weights->data[i];
+            if(((Node*)current_node->edges->data[i])->best_weight == 0 ||
+            ((Node*)current_node->edges->data[i])->best_weight < current_node->best_weight + current_node->weights->data[i]) 
+                ((Node*)current_node->edges->data[i])->best_weight = current_node->best_weight + current_node->weights->data[i];
 
-            queue_push(q, current_node->edges->data[i], current_node->edges->data[i]->best_weight);
+            priority_queue_push(q, current_node->edges->data[i], ((Node*)current_node->edges->data[i])->best_weight);
         }
     }
 }
@@ -74,7 +74,7 @@ Node* init_graph(void* value) {
   new_node->data = value;
   
   new_node->edges = init_vector();
-  new_node->weights = init_vector();
+  new_node->weights = init_vector_int();
 
   new_node->best_weight = 0;
   new_node->is_visited = 0;
