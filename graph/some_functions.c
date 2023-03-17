@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "vector.h"
+#include "vector_int.h"
 #include "priority_queue.h"
 #include "queue.h"
 
@@ -85,14 +86,13 @@ Node* init_graph(void* value) {
 }
 
 void connect(Node* first, Node* second, int weight) {
+  //* edges
   vector_push(first->edges, second);
   vector_push(second->edges, first);
 
-  int *dynamic_weight = (int *)malloc(sizeof(int));
-  (*dynamic_weight) = weight;
-
-  vector_push(first->weights, dynamic_weight);
-  vector_push(second->weights, dynamic_weight);
+  //* weights
+  vector_int_push(first->weights, weight);
+  vector_int_push(second->weights, weight);
 }
 
 
