@@ -24,12 +24,8 @@ unsigned int linked_list_size(Linked_list* node) {
 
 void linked_list_push(Linked_list** head, void* value) {
     //* is_empty
-    if ((*head) == NULL) {
-
-        (*head) = linked_list_init();
-        (*head)->data = value;
-        (*head)->next = NULL;
-
+    if (head == NULL) {
+        printf("Error! No list defined.\n");
         return;
     }
 

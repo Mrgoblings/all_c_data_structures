@@ -24,12 +24,8 @@ unsigned int doubly_linked_list_size(Doubly_linked_list* node) {
 
 void doubly_linked_list_push(Doubly_linked_list** head, void* value) {
     //* is_empty
-    if ((*head) == NULL) {
-
-        (*head) = doubly_linked_list_init();
-        (*head)->data = value;
-        (*head)->next = (*head)->prev = NULL;
-
+    if (head == NULL) {
+        printf("Error! No list defined.\n");
         return;
     }
 
