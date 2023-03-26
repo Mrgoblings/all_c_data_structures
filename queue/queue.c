@@ -25,12 +25,8 @@ unsigned int queue_size(Queue* q) {
 
 void queue_push(Queue* q, void* value) {
     //* is_empty
-    if (q->head == NULL) {
-
-        q->tail = q->head = (Queue_node*) malloc(sizeof(Queue_node));
-        q->head->data = value;
-        q->head->next = q->head->prev = NULL;
-
+    if (head == NULL) {
+        printf("Error! No list defined.\n");
         return;
     }
 
