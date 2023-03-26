@@ -25,7 +25,7 @@ unsigned int queue_size(Queue* q) {
 
 void queue_push(Queue* q, void* value) {
     //* is_empty
-    if (head == NULL) {
+    if (q == NULL || q->head == NULL) {
         printf("Error! No list defined.\n");
         return;
     }
