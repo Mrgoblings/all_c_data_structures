@@ -7,12 +7,10 @@ typedef struct binary_tree_t {
 } Binary_tree;
 
 
-
-Binary_tree* binary_tree_init();
-unsigned int binary_tree_size(Binary_tree* q);
-void binary_tree_push(Binary_tree* q, void* value, int priority);
-void* binary_tree_pop(Binary_tree* q);
-int binary_tree_contains(Binary_tree* q, void* value);
-void binary_tree_clear(Binary_tree* q);
-void binary_tree_destroy(Binary_tree* q);
-void binary_tree_print(Binary_tree* q);
+Binary_tree* binary_tree_init(void* value, int priority);
+unsigned int binary_tree_size(Binary_tree* node);
+void binary_tree_push(Binary_tree* node, void* value, int priority);
+int binary_tree_contains(Binary_tree* node, void* value);
+void binary_tree_clear(Binary_tree* node);
+void binary_tree_destroy(Binary_tree* node);
+void binary_tree_print(Binary_tree* node);
