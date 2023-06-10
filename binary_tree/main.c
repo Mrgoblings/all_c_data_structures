@@ -17,6 +17,6 @@ int main() {
    
     binary_tree_destroy(tree);
     tree = NULL;
- 
+  
     return 0;
 }
