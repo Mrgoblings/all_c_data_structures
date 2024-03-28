@@ -7,7 +7,6 @@ Welcome to The Data Structures in C, a library of standard data structures desig
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 This library includes the following data structures:
@@ -69,9 +68,6 @@ void linked_list_print(Linked_list* head) {
 
 ## Contributing
 We welcome contributions to this library! If you find a bug or want to add a new feature, please open an issue or submit a pull request.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for more information.
 
 
 Happy coding!
